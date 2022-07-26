@@ -148,9 +148,32 @@ class DemoApplicationTests {
 - здесь вам надо создать два своих `GenericContainer` в полях класса - каждый под свой образ, который мы создали ранее.
 - в методе `setUp()` стартуйте контейнеры своих образов.
 - напишите два юнит тесты для проверки корректности того, что вернет вам ваше приложение. Для этого используйте объект класса `TestRestTemplate`, который представлен в примере. С помощью него сделайте запрос. Для того, чтобы понять на каком порту запущен ваш контейнер, воспользуйтесь методом `getMappedPort`, как на примере из лекции. И для проверки корректности ответа проверьте с помощью метода `assertEquals`.
- 
 
+**************************
+ ```
+ /spring-boot-conditional-app/src/main/resources/application.properties
+     server.port=9000
+     netology.profile.dev = true
+
+ /spring-boot-conditional-app/Dockerfile
+     EXPOSE 9000
  
+  ./gradlew clean build
+ 
+  docker build -t devapp .
+   ```
+
+**************************
+ ```
+     server.port=9001
+     netology.profile.dev = true
+    
+    EXPOSE 9001 
+    
+    ./gradlew clean build 
+   
+   docker build -t prodapp . 
+ ```
  
 
 
