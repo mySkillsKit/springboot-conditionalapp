@@ -152,11 +152,11 @@ class DemoApplicationTests {
 **************************
  ```
  /spring-boot-conditional-app/src/main/resources/application.properties
-     server.port=9000
+     server.port=8080
      netology.profile.dev = true
 
  /spring-boot-conditional-app/Dockerfile
-     EXPOSE 9000
+     EXPOSE 8080
  
   ./gradlew clean build
  
@@ -165,15 +165,15 @@ class DemoApplicationTests {
 
 **************************
  ```
-     server.port=9001
-     netology.profile.dev = true
+     server.port=8081
+     netology.profile.dev = false
     
-    EXPOSE 9001 
+    EXPOSE 8081 
     
     ./gradlew clean build 
    
    docker build -t prodapp . 
  ```
- 
+ * запускаем testcontainers SpringBootConditionalAppApplicationTests
 
 
